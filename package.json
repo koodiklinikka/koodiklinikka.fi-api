@@ -1,0 +1,26 @@
+{
+  "name": "koodiklinikka.fi-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:koodiklinikka/koodiklinikka.fi-api.git"
+  },
+  "author": "Riku Rouvila",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/koodiklinikka/koodiklinikka.fi-api/issues"
+  },
+  "homepage": "https://github.com/koodiklinikka/koodiklinikka.fi-api",
+  "dependencies": {
+    "body-parser": "^1.10.1",
+    "express": "^4.11.0",
+    "lodash": "^2.4.1",
+    "superagent": "^0.21.0",
+    "validator": "^3.27.0"
+  }
+}
