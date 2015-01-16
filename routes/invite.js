@@ -29,7 +29,8 @@ module.exports = function (app) {
       }
 
       if(!response.body.ok) {
-        return next(new Error('Creating slack invitation failed'));
+        var err = new Error('Creating slack invitation failed:', response.body.error);
+        return next(err);
       }
 
       res.status(200).end();
