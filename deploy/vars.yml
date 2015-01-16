@@ -1,8 +1,0 @@
----
-project_name: koodiklinikka.fi-api
-projects_path: /opt/web/koodiklinikka.fi-api
-repository_url: git@github.com:koodiklinikka/koodiklinikka.fi-api.git
-service_user: web
-nvm_path: /opt/web/nvm
-nvm_script: /opt/web/nvm/nvm.sh
-nodejs_version: v0.10.25
