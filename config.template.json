@@ -1,0 +1,11 @@
+{
+  "all": {
+    "slack": {
+      "token": "",
+      "channels": ""
+    },
+    "github": {
+      "token": ""
+    }
+  }
+}
