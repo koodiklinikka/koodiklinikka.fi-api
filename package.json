@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/koodiklinikka/koodiklinikka.fi-api",
   "dependencies": {
+    "apicache": "0.0.12",
     "body-parser": "^1.10.1",
     "express": "^4.11.0",
     "lodash": "^2.4.1",
