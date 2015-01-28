@@ -6,6 +6,12 @@
     },
     "github": {
       "token": ""
+    },
+    "twitter": {
+      "consumerKey": "",
+      "consumerSecret": "",
+      "token": "",
+      "tokenSecret": ""
     }
   }
 }

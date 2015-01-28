@@ -9,6 +9,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 require('./routes/invite')(app);
 require('./routes/members')(app);
+require('./routes/feeds')(app);
 
 app.use(function(err, req, res, next) {
   /*jshint unused:false*/
