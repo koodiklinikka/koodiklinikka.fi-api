@@ -21,5 +21,22 @@ module.exports = {
         resolve(response.body);
       });
     });
+  },
+  /**
+   * Fetch all the public members of the GitHub organization
+   */
+  getMembers: function() {
+    return new Promise(function(resolve, reject) {
+      request
+      .get('https://api.github.com/orgs/koodiklinikka/public_members')
+      .set('Authorization', 'token ' + config.github.token)
+      .end(function(error, response){
+        if (error) {
+          reject(error);
+        }
+
+        resolve(response.body);
+      });
+    });
   }
 };
