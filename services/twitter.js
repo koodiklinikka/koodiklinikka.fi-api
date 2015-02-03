@@ -15,9 +15,9 @@ module.exports = {
   /**
    * Fetch five latest tweets / retweets from Twitter
    */
-  getTweets: function() {
+  getTweets: function(amount) {
     return new Promise(function(resolve, reject) {
-      twitterRestClient.statusesUserTimeline({count: 5}, function(error, result) {
+      twitterRestClient.statusesUserTimeline({count: amount}, function(error, result) {
         if (error) {
           reject(error);
         }
