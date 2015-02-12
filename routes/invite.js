@@ -22,8 +22,9 @@ module.exports = function (app) {
     slack
       .createInvite(req.body.email)
       .then(success)
-      .catch(function() {
-        return slack.createMessage('Invitation request for: ' + req.body.email);
+      .catch(function(err) {
+        var message = 'Creating automatic invitation failed for: ' + req.body.email + ' reason: ' + err;
+        return slack.createMessage(message);
       })
       .then(success)
       .catch(function(err) {
