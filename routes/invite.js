@@ -1,9 +1,7 @@
 'use strict';
 
 var validator = require('validator');
-var config = require('../lib/config');
-var request = require('superagent');
-
+var slack = require('../services/slack');
 
 module.exports = function (app) {
   /*
@@ -17,25 +15,22 @@ module.exports = function (app) {
       res.status(400).send('Invalid email');
     }
 
-    request
-    .post('https://koodiklinikka.slack.com/api/chat.postMessage')
-    .field('text', 'Invitation request for: ' + req.body.email)
-    .field('channel', config.slack.channels)
-    .field('token', config.slack.token)
-    .end(function(error, response){
-      if(error) {
-        return next(error);
-      }
-
-      if(!response.body.ok) {
-        console.error(response.body.error);
-        var err = new Error('Creating slack invitation failed:');
-        return next(err);
-      }
-
+    function success() {
       res.status(200).end();
-    });
+    }
 
+    slack
+      .createInvite(req.body.email)
+      .then(success)
+      .catch(function() {
+        return slack.createMessage('Invitation request for: ' + req.body.email);
+      })
+      .then(success)
+      .catch(function(err) {
+        console.error(err);
+        var err = new Error('Creating slack invitation failed');
+        return next(err);
+      });
   });
 
 };
