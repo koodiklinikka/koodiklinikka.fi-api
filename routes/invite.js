@@ -18,18 +18,18 @@ module.exports = function (app) {
     }
 
     request
-    .post('https://koodiklinikka.slack.com/api/users.admin.invite')
-    .field('email', req.body.email)
-    .field('channels', config.slack.channels)
+    .post('https://koodiklinikka.slack.com/api/chat.postMessage')
+    .field('text', 'Invitation request for: ' + req.body.email)
+    .field('channel', config.slack.channels)
     .field('token', config.slack.token)
-    .field('set_active', 'true')
     .end(function(error, response){
       if(error) {
         return next(error);
       }
 
       if(!response.body.ok) {
-        var err = new Error('Creating slack invitation failed:', response.body.error);
+        console.error(response.body.error);
+        var err = new Error('Creating slack invitation failed:');
         return next(err);
       }
 
