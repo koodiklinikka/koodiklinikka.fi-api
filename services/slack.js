@@ -15,7 +15,7 @@ module.exports = {
       request
       .post('https://koodiklinikka.slack.com/api/users.admin.invite')
       .field('email', email)
-      .field('channels', config.slack.channels)
+      .field('channels', config.slack.public_channel)
       .field('token', config.slack.token)
       .field('set_active', 'true')
       .end(function(error, response){
@@ -42,7 +42,7 @@ module.exports = {
       request
       .post('https://koodiklinikka.slack.com/api/chat.postMessage')
       .field('text', message)
-      .field('channel', config.slack.channels)
+      .field('channel', config.slack.private_channel)
       .field('token', config.slack.token)
       .end(function(error, response){
         if(error) {
