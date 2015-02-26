@@ -12,8 +12,8 @@ module.exports = function (app) {
    */
   app.get('/feeds', cache('10 minutes'), function(req, res, next) {
     Promise.props({
-      twitter: twitter.getTweets(20),
-      github: github.getEvents(20)
+      twitter: twitter.getTweets(40),
+      github: github.getEvents(40)
     }).then(function(data) {
       res.status(200).send(data);
     }, function(err) {
