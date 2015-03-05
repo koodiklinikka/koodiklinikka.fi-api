@@ -38,5 +38,22 @@ module.exports = {
         resolve(response.body);
       });
     });
+  },
+  /**
+   * Search member by email
+   */
+  findUserByEmail: function(email) {
+    return new Promise(function(resolve, reject) {
+      request
+      .get('https://api.github.com/search/users')
+      .query({q: email})
+      .set('Authorization', 'token ' + config.github.token)
+      .end(function(error, response){
+        if (error) {
+          reject(error);
+        }
+        resolve(response.body);
+      });
+    });
   }
 };

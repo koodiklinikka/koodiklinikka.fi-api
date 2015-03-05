@@ -51,5 +51,22 @@ module.exports = {
         resolve(response.body);
       });
     });
+  },
+  getUsers: function() {
+    return new Promise(function(resolve, reject) {
+      request
+      .post('https://koodiklinikka.slack.com/api/users.list')
+      .field('token', config.slack.token)
+      .end(function(error, response){
+        if(error) {
+          reject(error);
+        }
+        if(!response.body.ok) {
+          return reject(response.body.error);
+        }
+
+        resolve(response.body.members);
+      });
+    });
   }
 };
