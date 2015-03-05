@@ -20,8 +20,7 @@ require('./routes/feeds')(app);
 
 app.use(function(err, req, res, next) {
   /*jshint unused:false*/
-  console.error(err.message);
-  console.error(err.stack);
+  console.error(err);
   res.status(500).send('Internal server error');
 });
 
