@@ -20,6 +20,9 @@ RUN /bin/bash -c "source ~/.nvm/nvm.sh \
     && nvm use koodiklinikka.fi-api \
     && npm install"
 
+RUN cp node_modules/newrelic/newrelic.js .
+RUN NR_KEY=$(cat config.json |grep newrelic_key|cut -d'"' -f4) && sed -i "s/license key here/$NR_KEY/g" newrelic.js
+
 CMD NODE_ENV=$NODE_ENV PORT=$PORT /bin/bash -c "source ~/.nvm/nvm.sh \
                                                 && nvm use koodiklinikka.fi-api \
                                                 && node index.js >> /var/log/koodiklinikka.fi-api.log 2>&1"

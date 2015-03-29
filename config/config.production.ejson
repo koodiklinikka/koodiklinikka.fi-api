@@ -1,19 +1,20 @@
 {
   "_public_key": "94f3af35ad208d7bc7e3ddf1f9d181d090e3a1c74f9d56851c4f0f1efb04b571",
+  "newrelic_key": "EJ[1:8U8evsrlrGhenQ0Cv3XQR0SAYe6atL3PVKdj36Ue6SU=:Pdy9ugoJ3SglDvX6lGz2AyS2eKHHPm2E:uSzlBglVbzdbPPy3Pp/UMiJQn+6hhx/d2ohg94E/zvoS+8Jtl/2tPf6CQ3uFtbFvymYuDAwm+Fs=]",
   "all": {
     "slack": {
-      "token": "EJ[1:0VNp2YpGcWiglI/vwRtMRzDCQdR1TjDr24KPt4IbAD4=:UnuYGaTDvKGUyxTiEKrZgLhE0MueLY/+:Ffi/y1/18/r0+zG3q4nHsqlkzsyIgZjXjvpaCnZRQ541xXOTzOyy/gj745vmgCInLDJ8aro6V/IA/MVw+U7AXw==]",
-      "private_channel": "EJ[1:0VNp2YpGcWiglI/vwRtMRzDCQdR1TjDr24KPt4IbAD4=:ySi0nadjyCXSrukgD3Ro7z4+QSA8lxXL:YEezyvry6+ogSxDeTDVVoW6MZ954ndLbIQ==]",
-      "public_channel": "EJ[1:0VNp2YpGcWiglI/vwRtMRzDCQdR1TjDr24KPt4IbAD4=:4w8EpA/U2FNlDfj0qEwEMD4yM7Po4aK/:tOvNzYvbJ6DKQcYY5+tI4EWWu/ILMkAkFg==]"
+      "token": "EJ[1:8U8evsrlrGhenQ0Cv3XQR0SAYe6atL3PVKdj36Ue6SU=:aXVSV+o3beRrV7ebgxf7c5D04RVnxu7s:Smhu1k+kH9IrlwUwzIuk2sJ/m+FuyLAbO4Da2PF0rIciwjJM881lM8GU+NcsxbuIUXMgzI1tRw/38hAAq6ISBA==]",
+      "private_channel": "EJ[1:8U8evsrlrGhenQ0Cv3XQR0SAYe6atL3PVKdj36Ue6SU=:UMpbg7pcRg6nVYLQZV8r6VCRyKQ+9gKd:DapGJCT2/aOzLAn00EfTSMfHGV+/pSrzZw==]",
+      "public_channel": "EJ[1:8U8evsrlrGhenQ0Cv3XQR0SAYe6atL3PVKdj36Ue6SU=:y8iIiUNS37cIAM7TBtExRmI9Cvn+LtRT:GjiDGA7mCUp5AaeKD4nnu9Qry9OUecI0DA==]"
     },
     "github": {
-      "token": "EJ[1:0VNp2YpGcWiglI/vwRtMRzDCQdR1TjDr24KPt4IbAD4=:1/jbXdf+q8wSUaT4x6vNyNkO+Qib1mNE:iKtaee08Fw7vlZX7uuh9DXo9ejCoEBGcoVPdRpj22vRxI5Rdp03Ru4Xpp606InuYQgzhoNJjHyY=]"
+      "token": "EJ[1:8U8evsrlrGhenQ0Cv3XQR0SAYe6atL3PVKdj36Ue6SU=:EnbOnnCLRxPi7iZ1pWV8qVJc+avDKS9u:MZkoAW0i6SUhgZFBREyRN6jBGQ9ZqeslG45XHJpCKm3Spi7VxVG1xv75vCqRA0KW0Uzs7VwQaZo=]"
     },
     "twitter": {
-      "consumerKey": "EJ[1:0VNp2YpGcWiglI/vwRtMRzDCQdR1TjDr24KPt4IbAD4=:catMKtf36DTwOUyEo6G/q9EhS7aydT+C:cZuW+XzZ7wm1WDWHAyGLo8V2JYrV3xKQHnySRgw9YcIyip7Y/aeIUDY=]",
-      "consumerSecret": "EJ[1:0VNp2YpGcWiglI/vwRtMRzDCQdR1TjDr24KPt4IbAD4=:PAWn6PjcV4ziEmMcGiSYgnxeho9se2pL:dtCZP/qZl6HjVshry5qWRcZSBIuCvkeCLReMfAjUSBqbwuIw7T56s6dLb/VXrg5uU+RxtH5EK8LKVg69pLmA6r8y]",
-      "token": "EJ[1:0VNp2YpGcWiglI/vwRtMRzDCQdR1TjDr24KPt4IbAD4=:e9iE7i8uX1CwBy+I/Qcex0pqxnbs+wQO:OvQzUiaV1Xc8PDeUctytnEWDZs4+VOaZoc9b2JM2Rz51Rtnb2ION/IpRGczXOMKItmw8Wn7dgPWV1sV6g2E2ELXd]",
-      "tokenSecret": "EJ[1:0VNp2YpGcWiglI/vwRtMRzDCQdR1TjDr24KPt4IbAD4=:AzByOM9NRH4qQTHkhtsKtu2daXR6V3yJ:rZ5q4vEIwT5uwFKncP8TTMDa2pv3NCuvKGs/YdZxo1nq9m1QV4nS3DVlSd+6C1BWI/cdJ00nwGkToYuvsw==]"
+      "consumerKey": "EJ[1:8U8evsrlrGhenQ0Cv3XQR0SAYe6atL3PVKdj36Ue6SU=:+1l4+Wdfd/0kegV1Xwu237xJut/XPRUi:fNTezQs1RJwTRZGlwm3Z3B6tV44H9nZUM/w7zYjyVyK8MpoX3NmhW68=]",
+      "consumerSecret": "EJ[1:8U8evsrlrGhenQ0Cv3XQR0SAYe6atL3PVKdj36Ue6SU=:YbWwBsImZi2bxNSB9byt9faJzS5Ug8Sd:Y4rZWaQJaIHfuyOFBIXJHCKxlfxrid14zTM7yECumhX5MZBTFCyAH5LijJCuCqm9PtZElEFW2nOrsLQBtnyF1I3V]",
+      "token": "EJ[1:8U8evsrlrGhenQ0Cv3XQR0SAYe6atL3PVKdj36Ue6SU=:3wRXcXnXmU5qekVuryuXT/sq1MuloOTe:TdGkIi7WEPXweAaVsLUjFekFrEHiTZuW7jr8Q4F8FLTjoXpHkwBD9f4SRnxQ4BC+CRRoaiOBe6zzTb99SWIDCZPS]",
+      "tokenSecret": "EJ[1:8U8evsrlrGhenQ0Cv3XQR0SAYe6atL3PVKdj36Ue6SU=:DwFvhyEfkpgRXlcuXVh6iHZXbPnWwRRV:q+RFJ0SXe5wkiccmM7n8pWJNf62ByMW6IXLU2tZkpHEo2zosU+eMAkXtF52x5vJiYaWrIsxUcJeYzLFyEQ==]"
     }
   }
 }
