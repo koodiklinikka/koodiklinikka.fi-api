@@ -1,0 +1,15 @@
+#!/bin/bash
+if [[ -z "$1" ]]
+  then
+  KEYROOT=$HOME
+else
+  KEYROOT=$1
+fi
+
+gem install ejson
+
+ejson --keydir=$KEYROOT/.ejson decrypt config/config.production.ejson > config.json
+
+docker build -t koodiklinikka.fi-api .
+
+rm -rf config.json
