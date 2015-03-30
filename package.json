@@ -26,6 +26,7 @@
     "morgan": "^1.5.1",
     "node-twitter": "0.5.2",
     "superagent": "^0.21.0",
-    "validator": "^3.27.0"
+    "validator": "^3.27.0",
+    "newrelic": "^1.18.0"
   }
 }
