@@ -2,7 +2,8 @@
   "all": {
     "slack": {
       "token": "",
-      "channels": ""
+      "privateChannel": "",
+      "publicChannel": ""
     },
     "github": {
       "token": ""
