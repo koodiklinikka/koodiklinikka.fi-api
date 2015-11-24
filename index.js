@@ -3,11 +3,13 @@ require('newrelic');
 
 var express = require('express');
 var morgan = require('morgan');
+var cors = require('cors');
 var bodyParser = require('body-parser');
 var app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(cors());
 
 morgan.token('body', function(req) {
   return JSON.stringify(req.body);

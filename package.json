@@ -21,12 +21,13 @@
     "apicache": "0.0.12",
     "bluebird": "^2.9.3",
     "body-parser": "^1.10.1",
+    "cors": "^2.7.1",
     "express": "^4.11.0",
     "lodash": "^3.10.1",
     "morgan": "^1.5.1",
+    "newrelic": "^1.18.0",
     "node-twitter": "0.5.2",
     "superagent": "^0.21.0",
-    "validator": "^3.27.0",
-    "newrelic": "^1.18.0"
+    "validator": "^3.27.0"
   }
 }
