@@ -2,6 +2,7 @@
 
 var validator = require('validator');
 var slack = require('../services/slack');
+var github = require('../services/github');
 
 module.exports = function (app) {
   /*
@@ -21,16 +22,28 @@ module.exports = function (app) {
 
     slack
       .createInvite(req.body.email)
-      .then(success)
-      .catch(function(err) {
-        var message = 'Creating automatic invitation failed for: ' + req.body.email + ' reason: ' + err;
-        return slack.createMessage(message);
+      .then(function() {
+        github
+          .findUserByEmail(req.body.email)
+          .then(github.inviteToOrg)
+          .then(function(user) {
+            var message = 'User ' +  user.login + ' invited to GitHub organization.'
+            slack.createMessage(message);
+          })
+          .catch(function(err) {
+            var message = 'Creating GitHub invitation failed for: ' + req.body.email + ' reason: ' + err;
+            slack.createMessage(message);
+          });
       })
       .then(success)
       .catch(function(err) {
+        var message = 'Creating automatic invitation failed for: ' + req.body.email + ' reason: ' + err;
+        slack.createMessage(message);
+
         console.error(err);
-        var err = new Error('Creating slack invitation failed');
-        return next(err);
+
+        var error = new Error('Creating slack invitation failed');
+        return next(error);
       });
   });
 

@@ -53,6 +53,26 @@ module.exports = {
           reject(error);
         }
         resolve(response.body);
+  /**
+   * Invite user to organization
+   */
+  inviteToOrg: function(user) {
+    return new Promise(function(resolve, reject) {
+      request
+      .put('https://api.github.com/orgs/koodiklinikka/memberships/' + user.login)
+      .set('Authorization', 'token ' + config.github.token)
+      .send({role: 'member'})
+      .end(function(error, response){
+
+        if(error) {
+          return reject(error);
+        }
+
+        if(response.statusCode !== 200) {
+          return reject(response.error);
+        }
+
+        resolve(response.body.user);
       });
     });
   }
