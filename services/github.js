@@ -37,14 +37,14 @@ var githubService = {
     });
   },
   /**
-   * Fetch all the public members of the GitHub organization
+   * Fetch all members of the GitHub organization
    */
   getMembers: function(pageNum) {
     pageNum = pageNum || 0;
 
     return new Promise(function(resolve, reject) {
       request
-      .get('https://api.github.com/orgs/koodiklinikka/public_members')
+      .get('https://api.github.com/orgs/koodiklinikka/members')
       .query({page: pageNum})
       .set('Authorization', 'token ' + config.github.token)
       .end(function(error, response){
