@@ -13,11 +13,15 @@ module.exports = function (app) {
   app.post('/invites', function(req, res, next) {
 
     if(!validator.isEmail(req.body.email)) {
-      res.status(400).send('Invalid email');
+      return res.status(400).send('invalid_email');
     }
 
     function success() {
       res.status(200).end();
+    }
+
+    function alreadyInvited(email) {
+      res.status(400).send('already_invited');
     }
 
     slack
@@ -37,6 +41,11 @@ module.exports = function (app) {
       })
       .then(success)
       .catch(function(err) {
+
+        if(err === 'already_invited') {
+          return alreadyInvited(req.body.email);
+        }
+
         var message = 'Creating automatic invitation failed for: ' + req.body.email + ' reason: ' + err;
         slack.createMessage(message);
 

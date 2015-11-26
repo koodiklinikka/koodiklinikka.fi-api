@@ -49,10 +49,22 @@ module.exports = {
       .query({q: email})
       .set('Authorization', 'token ' + config.github.token)
       .end(function(error, response){
-        if (error) {
-          reject(error);
+        if(error) {
+          return reject(error);
         }
-        resolve(response.body);
+
+        if(!response.body.items) {
+          return reject(new Error(response.body.message));
+        }
+
+        if(response.body.items.length === 0) {
+          return reject(new Error('Not Found'));
+        }
+
+        resolve(response.body.items[0]);
+      });
+    });
+  },
   /**
    * Invite user to organization
    */
