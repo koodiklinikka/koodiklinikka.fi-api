@@ -4,7 +4,21 @@ var request = require('superagent');
 var config = require('../lib/config');
 var Promise = require('bluebird');
 
-module.exports = {
+function getNextPage(headers) {
+  if(!headers.link) {
+    return null;
+  }
+
+  var match = headers.link.match(/page=(\d+)>; rel="next"/);
+
+  if(!match) {
+    return null;
+  }
+
+  return match[1];
+}
+
+var githubService = {
   /**
    * Fetch five latest events from GitHub organization
    */
@@ -25,18 +39,32 @@ module.exports = {
   /**
    * Fetch all the public members of the GitHub organization
    */
-  getMembers: function() {
+  getMembers: function(pageNum) {
+    pageNum = pageNum || 0;
+
     return new Promise(function(resolve, reject) {
       request
       .get('https://api.github.com/orgs/koodiklinikka/public_members')
+      .query({page: pageNum})
       .set('Authorization', 'token ' + config.github.token)
       .end(function(error, response){
         if (error) {
           reject(error);
         }
 
-        resolve(response.body);
+        resolve(response);
       });
+    }).then(function(response) {
+
+      var nextPage = getNextPage(response.headers);
+
+      if(nextPage !== null) {
+        return githubService.getMembers(nextPage).then(function(members) {
+          return members.concat(response.body);
+        });
+      }
+
+      return response.body;
     });
   },
   /**
@@ -89,3 +117,5 @@ module.exports = {
     });
   }
 };
+
+module.exports = githubService;
