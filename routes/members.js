@@ -5,7 +5,7 @@ var cache = require('apicache').middleware;
 
 module.exports = function (app) {
   /*
-   * POST /members
+   * GET /members
    * Endpoint for fetching GitHub org public members
    */
 
@@ -16,4 +16,24 @@ module.exports = function (app) {
       next(error);
     });
   });
+
+  /*
+   * Post /members
+   * Endpoint for getting an invite to GitHub organization
+   */
+
+  app.post('/members', function(req, res, next) {
+    if(!req.body.username) {
+      return res.status(400).send('invalid_username');
+    }
+
+    github.inviteToOrg({
+      login: req.body.username
+    })
+    .then(function() {
+      res.status(200).end();
+    })
+    .catch(next);
+  });
+
 };
