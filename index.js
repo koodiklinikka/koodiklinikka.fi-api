@@ -23,8 +23,9 @@ app.use(morgan(':method :url :status :response-time ms - :res[content-length] :b
 require('./routes/invite')(app);
 require('./routes/members')(app);
 require('./routes/feeds')(app);
+require('./routes/membership')(app);
 
-app.use(function(err, req, res, next) {
+app.use(function(err, req, res, next) {
   /*jshint unused:false*/
   console.error(err);
   res.status(500).send('Internal server error');

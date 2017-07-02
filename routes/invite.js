@@ -16,7 +16,7 @@ module.exports = function (app) {
       return res.status(400).send('invalid_email');
     }
 
-    function success() {
+    function success() {
       res.status(200).end();
     }
 
