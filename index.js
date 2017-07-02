@@ -1,4 +1,3 @@
-require('newrelic');
 'use strict';
 
 var express = require('express');
@@ -7,9 +6,13 @@ var cors = require('cors');
 var bodyParser = require('body-parser');
 var app = express();
 
+if(app.get('env') != 'development') {
+  require('newrelic');
+}
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(cors());
+app.use(cors({credentials: true, origin: true}));
 
 morgan.token('body', function(req) {
   return JSON.stringify(req.body);

@@ -10,10 +10,6 @@ $ cd koodiklinikka.fi-api
 $ npm install
 ```
 
-* Create `config.json` file. See [config.template.json](https://github.com/koodiklinikka/koodiklinikka.fi-api/blob/master/config.template.json) for possible options.
-The config file consists of environment specific blocks. Environment variable `NODE_ENV` determines which block is used. If the environment variable is not present, the `development` block will be selected. 
-`all` block is always used and the block selected is merged into it so that it overwrites the values defined in it.
+* ``` $ npm start ```
 
-* ```
-$ npm start
-```
+Now app will be running on `localhost:9000`.
