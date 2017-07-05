@@ -1,9 +1,9 @@
 'use strict';
 
-var cache = require('apicache').middleware;
+var cache   = require('apicache').middleware;
 var Promise = require('bluebird');
 var twitter = require('../services/twitter');
-var github = require('../services/github');
+var github  = require('../services/github');
 
 module.exports = function (app) {
   /*

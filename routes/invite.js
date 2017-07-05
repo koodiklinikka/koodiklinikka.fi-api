@@ -1,8 +1,8 @@
 'use strict';
 
 var validator = require('validator');
-var slack = require('../services/slack');
-var github = require('../services/github');
+var slack     = require('../services/slack');
+var github    = require('../services/github');
 
 module.exports = function (app) {
   /*
