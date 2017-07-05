@@ -10,7 +10,7 @@ module.exports = function (app) {
    * GET /feeds
    * Endpoint for fetching different information feeds (Twitter, GitHub etc.)
    */
-  app.get('/feeds', cache('10 minutes'), function(req, res, next) {
+  app.get('/feeds', cache('10 minutes'), function(req, res, next) {
     Promise.props({
       twitter: twitter.getTweets(40),
       github: github.getEvents(40)
