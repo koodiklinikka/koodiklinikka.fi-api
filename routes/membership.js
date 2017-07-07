@@ -5,16 +5,15 @@ var GoogleSpreadsheet = require('google-spreadsheet');
 var async = require('async');
 var moment = require('moment');
 
-// spreadsheet key is the long id in the sheets URL
-var doc = new GoogleSpreadsheet('1BUL1pjaXVlO5MRuOk-W5MEmKqxfzGnj7eFMif8tIVaU');
-var sheet;
-
 var slack   = require('../services/slack');
 var config  = require('../lib/config');
 var stripe  = require('stripe')(config.stripe.secretKey);
 
 
 function addNewMemberToSheets(name, email, residence, slackHandle) {
+  var doc = new GoogleSpreadsheet(config.google.spreadsheet_id);
+  var sheet;
+
   async.series([
     function setAuth(step) {
       console.log('Start Google Spreadsheed auth.');

@@ -1,0 +1,45 @@
+{
+  "development": {
+    "stripe": {
+      "secretKey": "sk_test_xEq4UqxSlnZN7x5nddoorhlD"
+    },
+    "slack": {
+      "token": "",
+      "privateChannel": "",
+      "publicChannel": ""
+    },
+    "github": {
+      "token": "cdb4aaae8452d1ba70790c1350ca7f0772f19d3d"
+    },
+    "twitter": {
+      "consumerKey": "",
+      "consumerSecret": "",
+      "token": "",
+      "tokenSecret": ""
+    },
+    "google": {
+      "spreadsheet_id": "1BUL1pjaXVlO5MRuOk-W5MEmKqxfzGnj7eFMif8tIVaU"
+    }
+  },
+  "production": {
+    "stripe": {
+      "secretKey": ""
+    },
+    "slack": {
+      "token": "",
+      "privateChannel": "",
+      "publicChannel": ""
+    },
+    "github": {
+      "token": ""
+    },
+    "twitter": {
+      "consumerKey": "",
+      "consumerSecret": "",
+      "token": "",
+      "tokenSecret": ""
+    }
+  },
+  "all": {
+  }
+}
