@@ -1,9 +1,53 @@
 'use strict';
 
-var Promise = require('bluebird');
+var Promise    = require('bluebird');
+var GoogleSpreadsheet = require('google-spreadsheet');
+var async = require('async');
+var moment = require('moment');
+
+// spreadsheet key is the long id in the sheets URL
+var doc = new GoogleSpreadsheet('1BUL1pjaXVlO5MRuOk-W5MEmKqxfzGnj7eFMif8tIVaU');
+var sheet;
+
 var slack   = require('../services/slack');
 var config  = require('../lib/config');
 var stripe  = require('stripe')(config.stripe.secretKey);
+
+
+function addNewMemberToSheets(name, email, residence, slackHandle) {
+  async.series([
+    function setAuth(step) {
+      console.log('Start Google Spreadsheed auth.');
+      var creds = require('../Koodiklinikka-f802649bba5e.json');
+      doc.useServiceAccountAuth(creds, step);
+    },
+    function getInfoAndWorksheets(step) {
+      console.log('Start Google Spreadsheet info fetch.');
+      doc.getInfo(function(err, info) {
+        sheet = info.worksheets[0];
+        step();
+      });
+    },
+    function workingWithRows(step) {
+      console.log('Start Google Spreadsheet row write.');
+      sheet.addRow({
+        'jäsenmaksu':     true,
+        'koko nimi':      name,
+        'liittymispäivä': moment().format('DD.MM.YYYY'),
+        'lisääjä':        'Koodiklinikka.fi-api',
+        'paikkakunta':    residence,
+        'slack':          slackHandle,
+        'sähköposti':     email
+      }, function(err){
+        console.log(`Error: ${err}`);
+      });
+    }
+  ], function(err){
+      if( err ) {
+        console.log(`Error: ${err}`);
+      }
+  });
+}
 
 module.exports = function (app) {
   /*
@@ -34,6 +78,8 @@ module.exports = function (app) {
         var message = 'Membership payment SUCCESS for: ```' + JSON.stringify(req.body) + '```';
         console.log(message);
         slack.createMessage(message);
+
+        addNewMemberToSheets(req.body.userInfo.name, req.body.userInfo.email, req.body.userInfo.residence, req.body.userInfo.handle);
 
         res.status(200).send({status_text: 'payment_success'});
         return;
