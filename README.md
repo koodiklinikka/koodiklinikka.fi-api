@@ -2,6 +2,7 @@
 
 [ ![Codeship Status for koodiklinikka/koodiklinikka.fi-api](https://codeship.com/projects/5ba71cf0-7f0a-0132-b32d-661179cb74c9/status?branch=master)](https://codeship.com/projects/57155)
 
+### Start developing
 * Install [Node.js](https://nodejs.org/en/) with your preferred installation method.
 * Clone the repository and install dependencies.
   ```
