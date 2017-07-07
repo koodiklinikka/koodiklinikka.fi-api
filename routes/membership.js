@@ -1,9 +1,9 @@
 'use strict';
 
-var Promise    = require('bluebird');
+var Promise           = require('bluebird');
 var GoogleSpreadsheet = require('google-spreadsheet');
-var async = require('async');
-var moment = require('moment');
+var async             = require('async');
+var moment            = require('moment');
 
 var slack   = require('../services/slack');
 var config  = require('../lib/config');
