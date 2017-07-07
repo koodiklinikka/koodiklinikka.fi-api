@@ -26,7 +26,7 @@ function addNewMemberToSheets(name, email, residence, slackHandle) {
         step();
       });
     },
-    function workingWithRows(step) {
+    function addRow(step) {
       console.log('Start Google Spreadsheet row write.');
       sheet.addRow({
         'jäsenmaksu':     true,
