@@ -1,7 +1,7 @@
 {
   "development": {
     "stripe": {
-      "secretKey": "sk_test_xEq4UqxSlnZN7x5nddoorhlD"
+      "secretKey": ""
     },
     "slack": {
       "token": "",
@@ -9,7 +9,7 @@
       "publicChannel": ""
     },
     "github": {
-      "token": "cdb4aaae8452d1ba70790c1350ca7f0772f19d3d"
+      "token": ""
     },
     "twitter": {
       "consumerKey": "",
@@ -18,7 +18,11 @@
       "tokenSecret": ""
     },
     "google": {
-      "spreadsheet_id": "1BUL1pjaXVlO5MRuOk-W5MEmKqxfzGnj7eFMif8tIVaU"
+      "spreadsheet_id": "",
+      "credentials": {
+        "client_email": "",
+        "private_key": ""
+      }
     }
   },
   "production": {
