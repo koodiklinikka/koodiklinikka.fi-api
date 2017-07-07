@@ -17,7 +17,6 @@ function addNewMemberToSheets(name, email, residence, slackHandle) {
   async.series([
     function setAuth(step) {
       console.log('Start Google Spreadsheed auth.');
-      var creds = require('../Koodiklinikka-f802649bba5e.json');
       doc.useServiceAccountAuth(config.google.credentials, step);
     },
     function getInfoAndWorksheets(step) {
