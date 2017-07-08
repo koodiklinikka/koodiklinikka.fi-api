@@ -77,12 +77,26 @@ module.exports = function (app) {
 
     console.log(`Start membership addition with body: ${JSON.stringify(req.body)}`);
 
-    stripe.charges.create({
-      amount:      config.membership.price,
-      card:        req.body.stripeToken,
-      currency:    'eur',
-      description: `Koodiklinikka ry jäsenyys: ${req.body.name}`
-    }, function(err, charge) {
+    const { handle, name, email } = req.body.userInfo
+
+    const createCustomer = (callback) =>
+      stripe.customers.create({
+        description: `${handle} - ${name}`,
+        email: email,
+        source: req.body.stripeToken,
+        metadata: req.body.userInfo
+      }, callback)
+
+    const createSubscription = (customer, callback) =>
+      stripe.subscriptions.create({
+        customer: customer.id,
+        plan: 'koodiklinikka'
+      }, callback)
+
+    async.waterfall([
+      createCustomer,
+      createSubscription
+    ], (err) => {
       if (err) {
         log(`Membership payment FAILED for: ${JSON.stringify(req.body)}. Reason: ${err.message}`);
         res.status(500).send('payment_error');
