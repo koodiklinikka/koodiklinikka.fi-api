@@ -31,7 +31,11 @@ function addNewMemberToSheets(data, callback) {
     function getInfoAndWorksheets(cb) {
       console.log('Start Google Spreadsheet info fetch.');
       doc.getInfo(function(err, info) {
-        cb(null, info.worksheets[0]);
+        if(err) {
+          cb(err);
+        } else {
+          cb(null, info.worksheets[0]);
+        }
       });
     },
     function addRow(sheet, cb) {
@@ -74,10 +78,10 @@ module.exports = function (app) {
     console.log(`Start membership addition with body: ${JSON.stringify(req.body)}`);
 
     stripe.charges.create({
-        amount:      config.membership.price,
-        card:        req.body.stripeToken,
-        currency:    'eur',
-        description: `Koodiklinikka ry jäsenyys: ${req.body.name}`
+      amount:      config.membership.price,
+      card:        req.body.stripeToken,
+      currency:    'eur',
+      description: `Koodiklinikka ry jäsenyys: ${req.body.name}`
     }, function(err, charge) {
       if (err) {
         log(`Membership payment FAILED for: ${JSON.stringify(req.body)}. Reason: ${err.message}`);
