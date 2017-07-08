@@ -4,10 +4,12 @@ var Promise           = require('bluebird');
 var GoogleSpreadsheet = require('google-spreadsheet');
 var async             = require('async');
 var moment            = require('moment');
+var Joi               = require('joi');
 
 var slack   = require('../services/slack');
 var config  = require('../lib/config');
 var stripe  = require('stripe')(config.stripe.secretKey);
+var validateRequest = require('../utils/validateRequest');
 
 function log(message) {
   console.log(message);
@@ -54,7 +56,21 @@ module.exports = function (app) {
    * POST /membership
    * Endpoint for adding a new member to the association
    */
-  app.post('/membership', function(req, res, next) {
+
+  const schema = Joi.object().keys({
+    userInfo: Joi.object().keys({
+      name: Joi.string().required(),
+      email: Joi.string().email().required(),
+      handle: Joi.string().required(),
+      address: Joi.string().required(),
+      city: Joi.string().required(),
+      postcode: Joi.string().required()
+    }),
+    stripeToken: Joi.string().required()
+  })
+
+  app.post('/membership', validateRequest(schema), function(req, res, next) {
+
     console.log(`Start membership addition with body: ${JSON.stringify(req.body)}`);
 
     stripe.charges.create({
