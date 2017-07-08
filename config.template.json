@@ -18,11 +18,9 @@
       "tokenSecret": ""
     },
     "google": {
-      "spreadsheet_id": "",
-      "credentials": {
-        "client_email": "",
-        "private_key": ""
-      }
+      "spreadsheetId": "",
+      "clientEmail": "",
+      "privateKey": ""
     }
   },
   "production": {
