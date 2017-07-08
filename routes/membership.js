@@ -18,15 +18,15 @@ function log(message) {
 
 function addNewMemberToSheets(data, callback) {
   var {name, email, address, postcode, city, handle} = data;
-  var doc = new GoogleSpreadsheet(config.google.spreadsheet_id);
+  var doc = new GoogleSpreadsheet(config.google.spreadsheetId);
 
   async.waterfall([
     function setAuth(cb) {
       console.log('Start Google Spreadsheed auth.');
       doc.useServiceAccountAuth({
-        clientEmail: config.google.clientEmail,
-        privateKey: config.google.privateKey
-      }, () => cb());
+        client_email: config.google.clientEmail,
+        private_key: config.google.privateKey
+      }, (err) => cb(err));
     },
     function getInfoAndWorksheets(cb) {
       console.log('Start Google Spreadsheet info fetch.');
