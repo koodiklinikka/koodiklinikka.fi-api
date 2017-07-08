@@ -1,8 +1,8 @@
 'use strict';
 
 var validator = require('validator');
-var slack = require('../services/slack');
-var github = require('../services/github');
+var slack     = require('../services/slack');
+var github    = require('../services/github');
 
 module.exports = function (app) {
   /*
@@ -10,13 +10,13 @@ module.exports = function (app) {
    * Endpoint for sending invitations automatically
    */
 
-  app.post('/invites', function(req, res, next) {
+  app.post('/invites', function(req, res, next) {
 
     if(!validator.isEmail(req.body.email)) {
       return res.status(400).send('invalid_email');
     }
 
-    function success() {
+    function success() {
       res.status(200).end();
     }
 
@@ -34,7 +34,7 @@ module.exports = function (app) {
             var message = 'User ' +  user.login + ' invited to GitHub organization.'
             slack.createMessage(message);
           })
-          .catch(function(err) {
+          .catch(function(err) {
             var message = 'Creating GitHub invitation failed for: ' + req.body.email + ' reason: ' + err;
             slack.createMessage(message);
           });

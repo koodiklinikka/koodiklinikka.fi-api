@@ -1,5 +1,32 @@
 {
-  "all": {
+  "development": {
+    "stripe": {
+      "secretKey": ""
+    },
+    "slack": {
+      "token": "",
+      "privateChannel": "",
+      "publicChannel": ""
+    },
+    "github": {
+      "token": ""
+    },
+    "twitter": {
+      "consumerKey": "",
+      "consumerSecret": "",
+      "token": "",
+      "tokenSecret": ""
+    },
+    "google": {
+      "spreadsheetId": "",
+      "clientEmail": "",
+      "privateKey": ""
+    }
+  },
+  "production": {
+    "stripe": {
+      "secretKey": ""
+    },
     "slack": {
       "token": "",
       "privateChannel": "",
@@ -14,5 +41,7 @@
       "token": "",
       "tokenSecret": ""
     }
+  },
+  "all": {
   }
 }
