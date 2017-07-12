@@ -98,15 +98,15 @@ module.exports = function (app) {
       createSubscription
     ], (err) => {
       if (err) {
-        log(`Membership payment FAILED for: ${JSON.stringify(req.body)}. Reason: ${err.message}`);
+        log(`Membership payment FAILED for: ${JSON.stringify(req.body.userInfo.email)}. Reason: ${err.message}`);
         res.status(500).send('payment_error');
         return;
       }
 
-      log(`Membership payment SUCCESSFUL for: ${JSON.stringify(req.body)}`);
+      log(`Membership payment SUCCESSFUL for: ${JSON.stringify(req.body.userInfo.email)}`);
       addNewMemberToSheets(req.body.userInfo, (err) => {
         if(err) {
-          log(`Storing membership info FAILED for: ${JSON.stringify(req.body)}. Reason: ${err.message}`);
+          log(`Storing membership info FAILED for: ${JSON.stringify(req.body.userInfo.email)}. Reason: ${err.message}`);
           res.status(500).send('membership_storage_error');
           return;
         }
