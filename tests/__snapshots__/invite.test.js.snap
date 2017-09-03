@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`invite endpoint invites user to github org 1`] = `
+Object {
+  "body": Object {
+    "role": "member",
+  },
+  "headers": Object {
+    "authorization": "token ",
+  },
+  "params": Object {
+    "login": "rikukissa",
+  },
+  "query": Object {},
+  "url": "https://api.github.com/orgs/koodiklinikka/memberships/rikukissa",
+}
+`;
+
+exports[`invite endpoint responds with 200 status 1`] = `
+Object {
+  "body": Object {},
+  "headers": Object {
+    "access-control-allow-credentials": "true",
+    "connection": "close",
+    "content-length": "0",
+    "vary": "Origin",
+    "x-powered-by": "Express",
+  },
+  "status": 200,
+}
+`;
+
+exports[`invite endpoint send an invite request to slack's api 1`] = `
+Object {
+  "body": Object {
+    "channels": "",
+    "email": "test@example.com",
+    "set_active": "true",
+    "token": "",
+  },
+  "headers": Object {},
+  "params": Object {},
+  "query": Object {},
+  "url": "https://koodiklinikka.slack.com/api/users.admin.invite",
+}
+`;
+
+exports[`invite endpoint tries searching for the user from github API 1`] = `
+Object {
+  "body": Object {},
+  "headers": Object {
+    "authorization": "token ",
+  },
+  "params": Object {},
+  "query": Object {
+    "q": "test@example.com",
+  },
+  "url": "https://api.github.com/search/users",
+}
+`;
