@@ -31,4 +31,8 @@ app.use(function(err, req, res, next) {
   res.status(500).send('Internal server error');
 });
 
-app.listen(process.env.PORT || 9000);
+if(!module.parent) {
+  app.listen(process.env.PORT || 9000);
+}
+
+module.exports = app;
