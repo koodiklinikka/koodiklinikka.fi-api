@@ -1,8 +1,5 @@
 {
   "development": {
-    "stripe": {
-      "secretKey": ""
-    },
     "slack": {
       "token": "",
       "privateChannel": "",
@@ -24,9 +21,6 @@
     }
   },
   "production": {
-    "stripe": {
-      "secretKey": ""
-    },
     "slack": {
       "token": "",
       "privateChannel": "",
@@ -42,6 +36,5 @@
       "tokenSecret": ""
     }
   },
-  "all": {
-  }
+  "all": {}
 }
