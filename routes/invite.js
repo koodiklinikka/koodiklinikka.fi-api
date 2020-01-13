@@ -24,6 +24,10 @@ module.exports = function (app) {
       res.status(400).send('already_invited');
     }
 
+    function alreadyInTeam() {
+      res.status(400).send("already_in_team");
+    }
+
     slack
       .createInvite(req.body.email)
       .then(function() {
@@ -45,7 +49,9 @@ module.exports = function (app) {
         if(err === 'already_invited') {
           return alreadyInvited(req.body.email);
         }
-
+        if (err === "already_in_team") {
+          return alreadyInTeam();
+        }
         var message = 'Creating automatic invitation failed for: ' + req.body.email + ' reason: ' + err;
         slack.createMessage(message);
 
