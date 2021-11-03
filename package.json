@@ -35,7 +35,7 @@
     "node-twitter": "0.5.2",
     "snyk": "^1.38.1",
     "superagent": "^2.0.0",
-    "validator": "^3.27.0"
+    "validator": "^13.7.0"
   },
   "snyk": true
 }
