@@ -21,7 +21,7 @@
   "homepage": "https://github.com/koodiklinikka/koodiklinikka.fi-api",
   "dependencies": {
     "apicache": "0.0.12",
-    "async": "^2.5.0",
+    "async": "^3.2.2",
     "bluebird": "^2.9.3",
     "body-parser": "^1.10.1",
     "cors": "^2.7.1",
