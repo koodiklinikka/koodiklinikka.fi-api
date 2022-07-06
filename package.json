@@ -29,7 +29,7 @@
     "google-spreadsheet": "^2.0.4",
     "joi": "^10.6.0",
     "lodash": "^3.10.1",
-    "moment": "^2.18.1",
+    "moment": "^2.29.4",
     "morgan": "^1.5.1",
     "newrelic": "^1.18.0",
     "node-twitter": "0.5.2",
