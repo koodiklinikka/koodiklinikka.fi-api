@@ -33,7 +33,7 @@
     "morgan": "^1.5.1",
     "newrelic": "^1.18.0",
     "node-twitter": "0.5.2",
-    "snyk": "^1.38.1",
+    "snyk": "^1.996.0",
     "superagent": "^2.0.0",
     "validator": "^3.27.0"
   },
